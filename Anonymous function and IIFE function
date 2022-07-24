@@ -1,1 +1,330 @@
+//Do the below programs in anonymous function & IIFE
 
+//a. Print odd numbers in an array
+
+//ANONYMOUS FUNCTION:
+
+let a=function () {
+    let arr=[];
+    let b=[1,2,3,4,5,6,7,8,9,10];
+    for(i=0; i<b.length; i++){
+        if(b[i]%2===0){
+            arr.push(b[i])
+        }
+    }
+    console.log(arr.join(" "));
+}
+a();
+
+//IIFE FUNCTION:
+
+ ( function() {
+    let arr=[];
+        a=[1,2,3,4,5,6,7,8,9,10];
+       for(let i=0; i<a.length; i++){
+           if(a[i]%2===0){
+            arr.push((a[i]))
+    }
+ }
+console.log(arr.join(" "));
+    }
+)();
+
+//b. Convert all the strings to title caps in a string array
+
+//ANONYMOUS FUNCTION:
+
+let titleCaps=function() {
+  let string = ["full stack development"];
+  let str = string[0].split(" ");
+  for (var i = 0; i < str.length; i++) {
+    str[i]= str[i].charAt(0).toUpperCase() + str[i].slice(1);
+  }
+  console.log(str.join(" "));
+}
+titleCaps();
+
+//IIFE Function:
+
+(function() {
+  let string = ["full stack development"];
+  let str = string[0].split(" ");
+  for (var i = 0; i < str.length; i++) {
+    str[i]= str[i].charAt(0).toUpperCase() + str[i].slice(1);
+  }
+  console.log(str.join(" "));
+})
+();
+
+//c. Sum of all numbers in an array
+
+//ANONYMOUS FUNCTION:
+
+let sumAdd=function(){
+    let sum=0;
+    let num=[1,2,3,4,5];
+    for(let i=0; i<num.length; i++){
+        sum+=num[i];
+
+    }
+    console.log(sum)
+}
+sumAdd();
+
+//IIFE FUNCTION:
+
+(function(){
+    let sum=0;
+    let num=[1,2,3,4,5];
+    for(let i=0; i<num.length; i++){
+        sum+=num[i];
+
+    }
+    console.log(sum)
+})
+();
+
+//d. Return all the prime numbers in an array
+
+//ANONYMOUS FUNCTION:
+
+var sum = function(a) {
+  var res = "";
+  for (i = 0; i < a.length; i++) {
+    var count = 0;
+    for (j = 1; j <= a[i]; j++) {
+      if (a[i] % j === 0) {
+        count++;
+      }
+    }
+    if (count == 2) {
+      res += a[i] + " ";
+    }
+  }
+  return res;
+};
+console.log(sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 11]));
+
+//IIFE FUNCTIONS:
+(function (a) {
+  var res = "";
+  for (i = 0; i < a.length; i++) {
+    var count = 0;
+    for (j = 1; j <= a[i]; j++) {
+      if (a[i] % j === 0) {
+        count++;
+      }
+    }
+    if (count == 2) {
+      res += a[i] + " ";
+    }
+  }
+  console.log(res);
+})([1, 2, 3, 4, 5, 6, 7, 8, 9, 11]);
+
+//e. Return all the palindromes in an array
+
+//ANONYMOUS FUNCTION:
+
+var palind=function(a){
+    var res="";
+    var ans="";
+    for(i=0;i<a.length;i++)
+    {
+        res+=a[i];
+        var count=0
+
+        for(j=0;j<res.length;j++)
+        {
+            if(res[j]===res[((res.length-1)-j)])
+            {
+                count++
+
+            }
+        }
+        if(count===res.length)
+        {
+            ans+=res+" "
+        }
+        res="";
+    }
+
+    console.log(`Palindromes: ${ans}`)
+
+  }
+  palind([11,343,121,788,455,'MALAYALAM','GUVI'])
+
+//IIFE FUNCTION:
+
+(function(a){
+
+    var res="";
+    var ans="";
+    for(i=0;i<a.length;i++)
+    {
+        res+=a[i];
+        var count=0
+
+        for(j=0;j<res.length;j++)
+        {
+            if(res[j]===res[((res.length-1)-j)])
+            {
+                count++
+
+            }
+        }
+        if(count===res.length)
+        {
+            ans+=res+" "
+        }
+        res="";
+    }
+
+    console.log(`Palindromes: ${ans}`)
+
+  })
+  ([11,343,121,788,455,'MALAYALAM','GUVI']);
+
+//f. Return median of two sorted arrays of the same size. 
+//ANONYMOUS FUNCTION:
+
+var arr = function (a, b) {
+  var c = [];
+  var n = a.length;
+  var p = b.length;
+  var i = 0;
+  var j = 0;
+  var med = 0;
+  while (i < n && j < p) {
+    if (a[i] < b[j]) {
+      c.push(a[i]);
+      i++;
+    } else {
+      c.push(b[j]);
+      j++;
+    }
+  }
+
+  if (i < n) {
+    for (let k = i; k < n; k++) {
+      c.push(a[k]);
+    }
+  } else if (j < p) {
+    for (let m = j; m < p; m++) {
+      c.push(b[m]);
+    }
+  }
+  if (c.length % 2 === 0) {
+    med = (c[c.length / 2 - 1] + c[c.length / 2]) / 2;
+  } else {
+    med = c[Math.floor(c.length / 2)];
+  }
+  return med;
+};
+console.log(arr([1, 2, 3, 7], [4, 5, 6, 8]));
+
+//IIFE Function:
+
+(function(a,b){
+  var c=[];
+  var n=a.length;
+  var p=b.length;
+  var i=0;
+  var j=0;
+  var med=0;
+  while(i<n && j<p)
+  {
+      if(a[i]<b[j])
+      {
+          c.push(a[i])
+          i++
+      }
+      else
+      {
+          c.push(b[j])
+          j++
+      }
+  }
+  
+   if(i<n)
+   {
+       for(let k=i;k<n;k++)
+       {
+           c.push(a[k])
+       }
+   }
+   else if(j<p)
+   {
+       for(let m=j;m<p;m++)
+       {
+           c.push(b[m])
+       }
+   }
+   if(c.length%2===0)
+   {
+       med=(c[(c.length/2)-1]+c[c.length/2])/2
+   }
+   else
+   {
+       med=c[Math.floor(c.length/2)]
+   }
+   console.log(med);
+  
+}) ([1,2,3,7],[4,5,6,8]);
+
+
+//g. Remove duplicates from an array
+
+//ANONYMOUS FUNCTION:
+
+var arr=function(a){
+  let arr1=[...new Set(a)];
+  console.log(arr1.join(' '));
+}
+arr([1,1,2,1,2,3,3,3,4,3,3,3,3,2,2,2,'guvi','guvi']);
+
+//IIFE FUNCTION:
+
+(function(a){
+  
+  let arr=[...new Set(a)];
+  console.log(arr.join(' '));
+  })([1,1,2,1,2,3,3,3,4,3,3,3,3,2,2,2,'guvi','guvi']);
+
+  //h. Rotate an array by k times
+  
+ // ANONYMOUS FUNCTION:
+  var rotate=function(a,k){
+    n=a.length;
+ c=[];
+  d="";
+  for(i=0;i<n;i++)
+  {
+      c[(i+k)%(n)]=a[i]
+  }
+  for(i=0;i<c.length-1;i++)
+  {
+      d+=c[i]+" "
+  }
+  d+=c[c.length-1]
+  return d;
+}
+console.log(rotate([1,2,3,4,5],2));
+
+// IIFE Function:
+
+(function(a,k){
+  n=a.length;
+c=[];
+d="";
+for(i=0;i<n;i++)
+{
+    c[(i+k)%(n)]=a[i]
+}
+for(i=0;i<c.length-1;i++)
+{
+    d+=c[i]+" "
+}
+d+=c[c.length-1]
+console.log(d);
+}) ([1,2,3,4,5],3);
